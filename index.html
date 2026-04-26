@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Lake Electricals | Professional Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #f0f0f0;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+        /* Custom Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .loader { border: 3px solid #333; border-top: 3px solid #fff; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1621905235294-7548674900a0?auto=format&fit=crop&q=80&w=1500') center/cover; text-align: center; padding: 20px; }
+        
+        .logo-img { width: 150px; border-radius: 50%; border: 2px solid #fff; margin-bottom: 20px; animation: fadeInDown 1.5s; }
+        
+        h1 { font-size: 3rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; animation: fadeInUp 1s; }
+        p.subtitle { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; animation: fadeInUp 1.5s; }
+
+        /* Services Grid */
+        .services { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; border-bottom: 2px solid #fff; display: inline-block; padding-bottom: 10px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--glass); backdrop-filter: blur(10px); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; cursor: default; }
+        .card:hover { background: #fff; color: #000; transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; margin-bottom: 20px; }
+
+        /* Floating Action Buttons */
+        .cta-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; gap: 20px; z-index: 100; }
+        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .btn-call { background: #fff; color: #000; }
+        .btn-wa { background: #25d366; color: #fff; }
+        .btn:hover { transform: scale(1.1); }
+
+        /* Footer */
+        footer { padding: 50px 20px; background: #111; text-align: center; color: #666; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .cta-container { flex-direction: column; align-items: center; bottom: 20px; }
+            .btn { width: 80%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader"><div class="loader"></div></div>
+
+    <section class="hero">
+        <img src="https://i.ibb.co/VpyXm7K/logo.png" alt="Lotus Lake" class="logo-img"> <h1 class="animate__animated animate__fadeInDown">Lotus Lake</h1>
+        <p class="subtitle animate__animated animate__fadeInUp">Advanced Electrical Home Repair & Maintenance</p>
+        <p><i class="fas fa-map-marker-alt"></i> Chilavanoor, Ernakulam</p>
+    </section>
+
+    <section class="services">
+        <center><h2 class="section-title">Our Expertise</h2></center>
+        <div class="grid">
+            <div class="card animate__animated animate__zoomIn">
+                <i class="fas fa-bolt"></i>
+                <h3>House Wiring</h3>
+                <p>Complete house wiring and slab piping with professional finishing.</p>
+            </div>
+            <div class="card animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
+                <i class="fas fa-microchip"></i>
+                <h3>DB Dressing</h3>
+                <p>Expert in 1-Phase & 3-Phase Distribution Board dressing and troubleshooting.</p>
+            </div>
+            <div class="card animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+                <i class="fas fa-tools"></i>
+                <h3>Maintenance</h3>
+                <p>Quick repair services for all your domestic electrical issues.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-container">
+        <a href="tel:8921016567" class="btn btn-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+        <a href="https://wa.me/918921016567" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lotus Lake Electricals. Built by Gemini.</p>
+        <p>Chilavanoor, Kochi, Kerala</p>
+    </footer>
+
+    <script>
+        // Remove Preloader
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
