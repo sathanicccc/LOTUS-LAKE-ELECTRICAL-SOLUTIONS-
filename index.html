@@ -3,88 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotus Lake Electricals | Professional Services</title>
+    <title>Lotus Lake Electricals | Professional Electrician Kochi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
-            --bg-color: #000000;
+            --bg-color: #0b0b0b;
             --text-color: #ffffff;
             --accent-color: #f0f0f0;
-            --glass: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         
-        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; scroll-behavior: smooth; }
 
         /* Custom Preloader */
-        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; }
-        .loader { border: 3px solid #333; border-top: 3px solid #fff; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
+        .loader { border: 2px solid #222; border-top: 2px solid #fff; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; }
+        .loading-text { margin-top: 15px; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; color: #888; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1621905235294-7548674900a0?auto=format&fit=crop&q=80&w=1500') center/cover; text-align: center; padding: 20px; }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); text-align: center; padding: 20px; position: relative; }
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); opacity: 0.2; }
         
-        .logo-img { width: 150px; border-radius: 50%; border: 2px solid #fff; margin-bottom: 20px; animation: fadeInDown 1.5s; }
+        .logo-img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 25px; object-fit: cover; box-shadow: 0 0 30px rgba(255,255,255,0.1); z-index: 1; animation: zoomIn 1s; }
         
-        h1 { font-size: 3rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; animation: fadeInUp 1s; }
-        p.subtitle { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; animation: fadeInUp 1.5s; }
+        h1 { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px; z-index: 1; font-weight: 900; }
+        p.subtitle { font-size: 1.1rem; color: #aaa; margin-bottom: 30px; z-index: 1; max-width: 600px; line-height: 1.6; }
+        .location-tag { background: #fff; color: #000; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; z-index: 1; }
 
         /* Services Grid */
-        .services { padding: 80px 20px; max-width: 1200px; margin: auto; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; border-bottom: 2px solid #fff; display: inline-block; padding-bottom: 10px; }
+        .services { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+        .section-line { height: 4px; width: 60px; background: #fff; margin: auto; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--glass); backdrop-filter: blur(10px); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; cursor: default; }
-        .card:hover { background: #fff; color: #000; transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--glass); border: 1px solid var(--border-glass); padding: 40px; border-radius: 20px; transition: 0.5s; position: relative; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); transition: 0.5s; }
+        .card:hover::before { left: 100%; }
+        .card:hover { transform: translateY(-15px); border-color: #fff; background: rgba(255,255,255,0.08); }
+        .card i { font-size: 3rem; margin-bottom: 25px; color: #fff; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; }
+        .card p { color: #888; line-height: 1.6; font-size: 0.95rem; }
 
         /* Floating Action Buttons */
-        .cta-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; gap: 20px; z-index: 100; }
-        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .cta-container { position: fixed; bottom: 40px; width: 100%; display: flex; justify-content: center; gap: 20px; z-index: 100; }
+        .btn { padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.4s; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.6); text-transform: uppercase; letter-spacing: 1px; }
         .btn-call { background: #fff; color: #000; }
         .btn-wa { background: #25d366; color: #fff; }
-        .btn:hover { transform: scale(1.1); }
+        .btn:hover { transform: scale(1.05) translateY(-5px); }
+
+        /* Why Choose Us */
+        .why-us { background: #080808; padding: 80px 20px; text-align: center; }
+        .feature-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+        .feature-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .feature-item i { color: #fff; font-size: 1.5rem; }
 
         /* Footer */
-        footer { padding: 50px 20px; background: #111; text-align: center; color: #666; font-size: 0.9rem; }
+        footer { padding: 60px 20px 140px 20px; background: #000; text-align: center; border-top: 1px solid #111; }
+        footer p { color: #444; font-size: 0.85rem; letter-spacing: 1px; margin-top: 10px; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .cta-container { flex-direction: column; align-items: center; bottom: 20px; }
-            .btn { width: 80%; justify-content: center; }
+            h1 { font-size: 2.2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .cta-container { flex-direction: column; align-items: center; bottom: 20px; gap: 10px; }
+            .btn { width: 85%; justify-content: center; padding: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="preloader"><div class="loader"></div></div>
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loading-text">Loading Lotus Lake...</div>
+    </div>
 
     <section class="hero">
-        <img src="https://i.ibb.co/VpyXm7K/logo.png" alt="Lotus Lake" class="logo-img"> <h1 class="animate__animated animate__fadeInDown">Lotus Lake</h1>
-        <p class="subtitle animate__animated animate__fadeInUp">Advanced Electrical Home Repair & Maintenance</p>
-        <p><i class="fas fa-map-marker-alt"></i> Chilavanoor, Ernakulam</p>
+        <img src="https://i.ibb.co/HTSQs6ZD/1000024796.png" alt="Lotus Lake Logo" class="logo-img">
+        <h1 class="animate__animated animate__fadeInDown">Lotus Lake</h1>
+        <p class="subtitle animate__animated animate__fadeInUp">Expert single-phase and three-phase distribution board dressing, house wiring, and slab piping with professional finishing.</p>
+        <div class="location-tag animate__animated animate__fadeIn"><i class="fas fa-map-marker-alt"></i> Chilavanoor, Ernakulam</div>
     </section>
 
-    <section class="services">
-        <center><h2 class="section-title">Our Expertise</h2></center>
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="section-line"></div>
+        </div>
+        
         <div class="grid">
-            <div class="card animate__animated animate__zoomIn">
-                <i class="fas fa-bolt"></i>
-                <h3>House Wiring</h3>
-                <p>Complete house wiring and slab piping with professional finishing.</p>
+            <div class="card animate__animated animate__fadeInUp">
+                <i class="fas fa-house-bolt"></i>
+                <h3>Full House Wiring</h3>
+                <p>Complete internal and external wiring for new buildings and renovations with high safety standards.</p>
             </div>
-            <div class="card animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
                 <i class="fas fa-microchip"></i>
                 <h3>DB Dressing</h3>
-                <p>Expert in 1-Phase & 3-Phase Distribution Board dressing and troubleshooting.</p>
+                <p>Specialist in advanced 1-Phase & 3-Phase Distribution Board dressing for a clean and safe circuit setup.</p>
             </div>
-            <div class="card animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
-                <i class="fas fa-tools"></i>
-                <h3>Maintenance</h3>
-                <p>Quick repair services for all your domestic electrical issues.</p>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <i class="fas fa-pipe-valve"></i>
+                <h3>Slab Piping</h3>
+                <p>Precise conduit laying for concrete slabs and wall cutting for concealed electrical points.</p>
             </div>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <i class="fas fa-car-battery"></i>
+                <h3>Inverter & UPS</h3>
+                <p>Installation and maintenance of Inverter systems and high-capacity battery setups.</p>
+            </div>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <i class="fas fa-fan"></i>
+                <h3>Appliance Points</h3>
+                <p>Installing dedicated points for AC, Geyser, Fridge, and heavy-duty kitchen appliances.</p>
+            </div>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Safety Audit</h3>
+                <p>Earthing works, leakage current testing, and overall safety inspection of your home wiring.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <h2 style="text-transform: uppercase; letter-spacing: 2px;">Why Choose Us?</h2>
+        <div class="feature-list">
+            <div class="feature-item"><i class="fas fa-user-check"></i><span>Expert Electrician</span></div>
+            <div class="feature-item"><i class="fas fa-clock"></i><span>On-Time Service</span></div>
+            <div class="feature-item"><i class="fas fa-hand-holding-dollar"></i><span>Fair Pricing</span></div>
+            <div class="feature-item"><i class="fas fa-shield-heart"></i><span>Safety First</span></div>
         </div>
     </section>
 
@@ -94,14 +145,20 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Lotus Lake Electricals. Built by Gemini.</p>
-        <p>Chilavanoor, Kochi, Kerala</p>
+        <h3 style="color: #fff;">LOTUS LAKE ELECTRICALS</h3>
+        <p>Providing safe and professional electrical solutions across Ernakulam.</p>
+        <p>&copy; 2026 | Built for a Pro Electrician</p>
     </footer>
 
     <script>
-        // Remove Preloader
+        // Remove Preloader after page loads
         window.addEventListener('load', function() {
-            document.getElementById('preloader').style.display = 'none';
+            setTimeout(function() {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1000);
         });
     </script>
 </body>
